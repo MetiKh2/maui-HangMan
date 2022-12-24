@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HangMan.MainPage">
+    <Grid RowDefinitions="0.6*,0.4*">
+
+
+        <VerticalStackLayout Spacing="10">
+            <Label Text="{Binding ErrorStatus}" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+            <Image Source="{Binding ImageName}" HeightRequest="200" />
+            <Label FontSize="40" VerticalOptions="Center" HorizontalOptions="Center" Text="{Binding SpotLight}" />
+            <Label FontSize="Large" HorizontalTextAlignment="Center" Text="{Binding Message}" />
+            <Button Text="Reset" WidthRequest="100" HorizontalOptions="Center" Clicked="Button_Clicked_1" />
+        </VerticalStackLayout>
+
+
+        <FlexLayout x:Name="ContainerBtn" Grid.Row="1" Wrap="Wrap" JustifyContent="SpaceEvenly"
+                    BindableLayout.ItemsSource="{Binding Letters}"
+                    >
+
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <Button TextColor="White" BackgroundColor="DarkOrchid" WidthRequest="50" HeightRequest="50" Text="{Binding .}" Clicked="Button_Clicked" />
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+
+
+
+
+        </FlexLayout>
+    </Grid>
+</ContentPage>
